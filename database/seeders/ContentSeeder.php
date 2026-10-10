@@ -56,8 +56,12 @@ class ContentSeeder extends Seeder
         ];
 
         foreach ($items as $i => [$title, $c, $excerpt, $paras, $featured]) {
-            $body = $this->body(...$paras).$disclaimer;
-            Post::firstOrCreate(['slug' => Str::slug($title)], [
+            $slug = Str::slug($title);
+            $cr = config('image_credits.'.$slug);
+            $credit = $cr ? '<p><small>Photo: '.e($cr[0]).' · '.e($cr[1]).' · <a href="'.e($cr[2]).'" rel="noopener" target="_blank">Wikimedia Commons</a></small></p>' : '';
+            $body = $this->body(...$paras).$credit.$disclaimer;
+            Post::firstOrCreate(['slug' => $slug], [
+                'featured_image' => '/images/articles/'.$slug.'.webp',
                 'category_id' => $cat($c),
                 'title' => $title,
                 'excerpt' => $excerpt,

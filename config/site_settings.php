@@ -15,6 +15,7 @@ return [
             ['key' => 'tagline', 'label' => 'Tagline', 'default' => 'Women · Maternity · Wellness · Beyond'],
             ['key' => 'doctor_photo', 'label' => 'Doctor portrait', 'type' => 'image', 'help' => 'Leave empty to use the bundled portrait.'],
             ['key' => 'doctor_photo_alt', 'label' => 'Portrait alt text', 'default' => 'Portrait of Dr. Indhra Nedumaran'],
+            ['key' => 'copyright_text', 'label' => 'Copyright line (footer)', 'default' => 'Copyright © 2026 A to Z Pregnancy Care. All Rights Reserved.'],
             ['key' => 'footer_disclaimer', 'label' => 'Medical disclaimer (footer)', 'type' => 'textarea', 'default' => 'The information on this website is for general education and is not a substitute for personal medical advice, diagnosis or treatment. In an emergency, contact your nearest emergency service immediately.'],
         ],
     ],
@@ -24,7 +25,7 @@ return [
             ['key' => 'clinic_name', 'label' => 'Clinic / hospital name', 'default' => 'A2Z Pregnancy Care'],
             ['key' => 'phone', 'label' => 'Phone', 'default' => '073393 38888'],
             ['key' => 'whatsapp', 'label' => 'WhatsApp number (digits only, with country code)', 'default' => '917339338888'],
-            ['key' => 'email', 'label' => 'Public email', 'default' => '', 'help' => 'Optional. Hidden on the site while empty.'],
+            ['key' => 'email', 'label' => 'Public email', 'default' => 'atozpregnancycare@gmail.com'],
             ['key' => 'notify_email', 'label' => 'Send enquiry notifications to', 'default' => '', 'help' => 'Optional. Requires working mail settings in .env.'],
             ['key' => 'address', 'label' => 'Address', 'type' => 'textarea', 'default' => "P 39, Ground floor, Third Main Road, 6th Ave\nAnna Nagar, Chennai\nTamil Nadu 600040"],
             ['key' => 'hours', 'label' => 'Clinic hours (one line each)', 'type' => 'textarea', 'default' => '', 'help' => 'Optional. Hidden on the site while empty.'],
@@ -35,9 +36,9 @@ return [
     'social' => [
         'label' => 'Social links',
         'fields' => [
-            ['key' => 'facebook', 'label' => 'Facebook URL', 'type' => 'url'],
+            ['key' => 'facebook', 'label' => 'Facebook URL', 'type' => 'url', 'default' => 'https://www.facebook.com/A2ZPregnancycare#'],
             ['key' => 'instagram', 'label' => 'Instagram URL', 'type' => 'url'],
-            ['key' => 'youtube', 'label' => 'YouTube URL', 'type' => 'url'],
+            ['key' => 'youtube', 'label' => 'YouTube URL', 'type' => 'url', 'default' => 'https://www.youtube.com/channel/UCKW0ASz934MKT2jJ1num_Ww'],
             ['key' => 'linkedin', 'label' => 'LinkedIn URL', 'type' => 'url'],
             ['key' => 'x_twitter', 'label' => 'X (Twitter) URL', 'type' => 'url'],
         ],

@@ -40,7 +40,7 @@
     <div class="border-t border-ice-200">
         <div class="container-x flex flex-col gap-3 py-6 text-xs leading-relaxed text-mute sm:flex-row sm:items-start sm:justify-between">
             <p class="max-w-3xl">{{ setting('footer_disclaimer') }}</p>
-            <p class="shrink-0">© {{ date('Y') }} {{ setting('site_name') }}. All rights reserved.</p>
+            <p class="shrink-0">{{ setting('copyright_text') }}</p>
         </div>
     </div>
 </footer>
