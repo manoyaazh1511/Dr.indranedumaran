@@ -35,6 +35,7 @@
                         </td>
                     @endforeach
                     <td class="whitespace-nowrap px-4 py-3 text-right">
+                        @if($reorderable ?? false)<form method="POST" action="{{ route($route.'.move', $r->getKey()) }}" class="inline">@csrf<button name="dir" value="up" class="a-btn a-btn-ghost !px-2 !py-1" title="Move up" aria-label="Move up">▲</button><button name="dir" value="down" class="a-btn a-btn-ghost !px-2 !py-1" title="Move down" aria-label="Move down">▼</button></form>@endif
                         <a href="{{ route($route.'.edit', $r->getKey()) }}" class="a-btn a-btn-ghost !px-3 !py-1">Edit</a>
                         <form method="POST" action="{{ route($route.'.destroy', $r->getKey()) }}" class="inline" onsubmit="return confirm('Delete this {{ $singular }}? This cannot be undone.')">@csrf @method('DELETE')<button class="a-btn a-btn-danger !px-3 !py-1">Delete</button></form>
                     </td>

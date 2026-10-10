@@ -32,6 +32,8 @@ abstract class CrudController extends Controller
 
     protected string $orderDir = 'desc';
 
+    protected bool $reorderable = false;
+
     abstract protected function columns(): array;
 
     abstract protected function fields(): array;
@@ -78,7 +80,7 @@ abstract class CrudController extends Controller
 
         return view('admin.crud.index', [
             'records' => $records, 'columns' => $this->columns(), 'filters' => $this->filters(),
-            'title' => $this->title, 'singular' => $this->singular, 'route' => $this->route,
+            'title' => $this->title, 'singular' => $this->singular, 'route' => $this->route, 'reorderable' => $this->reorderable,
         ]);
     }
 

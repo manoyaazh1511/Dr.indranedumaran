@@ -15,7 +15,18 @@ class Service extends Model
 
     protected function casts(): array
     {
-        return ['is_published' => 'boolean'];
+        return ['is_published' => 'boolean', 'is_featured' => 'boolean', 'is_educational' => 'boolean'];
+    }
+
+    public function faqs()
+    {
+        return $this->hasMany(Faq::class)->where('is_published', true)->orderBy('sort_order')->orderBy('id');
+    }
+
+    /** Newline-separated admin text turned into a clean list. */
+    public function lines(?string $field): array
+    {
+        return array_values(array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', (string) $this->{$field}))));
     }
 
     public function scopePublished($q)

@@ -31,6 +31,11 @@ $paths = [
     'linkedin' => '<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 11v5M8 8h.01M12 16v-5m0 2c0-1.500 1-2 2-2s2 .5 2 2v3"/>',
     'x' => '<path d="m5 5 14 14M19 5 5 19"/>',
     'link' => '<path d="M10 14a4 4 0 0 0 5.600 0l3-3a4 4 0 0 0-5.600-5.600l-1 1M14 10a4 4 0 0 0-5.600 0l-3 3a4 4 0 0 0 5.600 5.600l1-1"/>',
-];
+    'flask' => '<path d="M9.5 3.5h5M10.5 3.5v5.2L5.4 17.600A2 2 0 0 0 7.100 20.500h9.800a2 2 0 0 0 1.700-2.900l-5.100-8.900V3.500"/><path d="M7.800 14.500h8.400"/>',
+    'snow' => '<path d="M12 3v18M4.200 7.500l15.600 9M4.200 16.500l15.600-9"/><path d="m9.500 4.500 2.500 2 2.500-2M9.500 19.500l2.500-2 2.500 2"/>',
+    'target' => '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.8"/>',
+    'users' => '<circle cx="9" cy="8.500" r="3"/><path d="M3.500 19c0-3 2.500-5 5.500-5s5.500 2 5.500 5"/><circle cx="17" cy="9.500" r="2.300"/><path d="M16.500 14.200c2.400.2 4 1.800 4 4.300"/>',
+    'dna' => '<path d="M7 3c0 5 10 5 10 9s-10 4-10 9M17 3c0 5-10 5-10 9s10 4 10 9"/><path d="M8.500 6.500h7M8.500 17.500h7"/>',
+    'list' => '<path d="M9 6.500h11M9 12h11M9 17.500h11"/><circle cx="4.500" cy="6.500" r="1"/><circle cx="4.500" cy="12" r="1"/><circle cx="4.500" cy="17.500" r="1"/>',];
 @endphp
 <svg {{ $attributes->merge(['class' => 'h-5 w-5']) }} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{!! $paths[$name] ?? $paths['sparkle'] !!}</svg>

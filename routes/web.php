@@ -50,6 +50,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('posts', Admin\PostController::class)->except('show');
         Route::resource('categories', Admin\CategoryController::class)->except('show');
         Route::resource('conferences', Admin\ConferenceController::class)->except('show');
+        Route::post('services/{id}/move', [Admin\ServiceController::class, 'move'])->whereNumber('id')->name('services.move');
         Route::resource('services', Admin\ServiceController::class)->except('show');
         Route::resource('faqs', Admin\FaqController::class)->except('show');
         Route::resource('pregnancy', Admin\PregnancyStageController::class)->except('show')->parameters(['pregnancy' => 'id']);

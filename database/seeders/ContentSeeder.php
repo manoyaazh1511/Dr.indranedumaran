@@ -26,6 +26,7 @@ class ContentSeeder extends Seeder
         $this->posts();
         $this->services();
         $this->faqs();
+        $this->call(FertilitySeeder::class);
         $this->pregnancy();
         $this->profile();
         $this->stories();
@@ -93,11 +94,6 @@ class ContentSeeder extends Seeder
     private function services(): void
     {
         $data = [
-            'fertility' => [
-                ['Fertility assessment', 'search', 'A structured evaluation to understand factors affecting conception.', 'Assessment usually includes a detailed history, examination, hormone blood tests, pelvic ultrasound and, for the partner, a semen analysis. The aim is to identify treatable factors and plan next steps.'],
-                ['PCOS care', 'flower', 'Personalised management of polycystic ovary syndrome.', 'Care may include lifestyle guidance, cycle regulation, ovulation support and long-term health monitoring, tailored to your goals.'],
-                ['Fertility treatments', 'sparkle', 'An overview of treatment pathways, chosen individually.', 'Depending on the findings, options may include ovulation induction, intrauterine insemination or assisted reproduction referral. Your doctor will explain the suitability, benefits and risks of each.'],
-            ],
             'gynaecology' => [
                 ['Menstrual disorders', 'drop', 'Heavy, painful or irregular periods.', 'Assessment looks for causes such as hormonal imbalance, fibroids, polyps or endometriosis, followed by medical or procedural options.'],
                 ['Fibroids, cysts and endometriosis', 'heart', 'Evaluation and management of common gynaecological conditions.', 'Treatment depends on symptoms, size, age and fertility plans, and may range from observation to medication or surgery.'],

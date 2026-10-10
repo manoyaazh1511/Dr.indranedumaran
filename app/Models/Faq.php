@@ -13,6 +13,11 @@ class Faq extends Model
         return ['is_published' => 'boolean'];
     }
 
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
+
     public function scopePublished($q)
     {
         return $q->where('is_published', true)->orderBy('sort_order')->orderBy('id');

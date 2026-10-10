@@ -31,7 +31,8 @@
             <h2 class="font-display text-xl">Get in touch</h2>
             <ul class="mt-4 space-y-3 text-sm text-mute">
                 <li class="flex gap-3"><x-icon name="phone" class="mt-0.5 h-4 w-4 shrink-0 text-lilac" /><a href="tel:{{ preg_replace('/[^\d+]/', '', setting('phone')) }}" class="hover:text-lilac">{{ setting('phone') }}</a></li>
-                @if(setting('email'))<li class="flex gap-3"><x-icon name="mail" class="mt-0.5 h-4 w-4 shrink-0 text-lilac" /><a href="mailto:{{ setting('email') }}" class="break-all hover:text-lilac">{{ setting('email') }}</a></li>@endif
+                @if(setting('whatsapp'))<li class="flex gap-3"><x-icon name="whatsapp" class="mt-0.5 h-4 w-4 shrink-0 text-lilac" /><a href="https://wa.me/{{ setting('whatsapp') }}" target="_blank" rel="noopener" class="hover:text-lilac">WhatsApp: +{{ setting('whatsapp') }}</a></li>@endif
+            @if(setting('email'))<li class="flex gap-3"><x-icon name="mail" class="mt-0.5 h-4 w-4 shrink-0 text-lilac" /><a href="mailto:{{ setting('email') }}" class="break-all hover:text-lilac">{{ setting('email') }}</a></li>@endif
                 <li class="flex gap-3"><x-icon name="pin" class="mt-0.5 h-4 w-4 shrink-0 text-lilac" /><span class="whitespace-pre-line">{{ setting('address') }}</span></li>
             </ul>
         </div>

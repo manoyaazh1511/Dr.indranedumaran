@@ -64,8 +64,38 @@ $heroLinks = fn ($u) => \Illuminate\Support\Str::startsWith($u, ['http', '/']) ?
     </div>
 </section>
 
-{{-- EXPERTISE --}}
-<section class="section bg-ice-50">
+{{-- FERTILITY --}}
+@if($fertilityCards->isNotEmpty())
+@php $fTones = ['from-sky-pastel/60 via-ice-100 to-lavender-100', 'from-lavender-200/70 via-lavender-100 to-ice-100', 'from-white/25 via-card to-sky-pastel/50', 'from-lavender-100 via-ice-100 to-sky-pastel/60', 'from-sky-pastel/50 via-card to-lavender-200/60', 'from-white/20 via-lavender-100 to-ice-100']; @endphp
+<section class="section relative overflow-hidden" aria-labelledby="fertility-heading">
+    <div class="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-sky-pastel/30 blur-3xl"></div>
+    <div class="pointer-events-none absolute -right-24 bottom-10 h-72 w-72 rounded-full bg-lavender-200/30 blur-3xl"></div>
+    <div class="container-x relative">
+        <div class="mx-auto max-w-3xl text-center">
+            <span class="eyebrow">Your Journey to Parenthood</span>
+            <h2 id="fertility-heading" class="h-section">Advanced Fertility Care, Personalised for You</h2>
+            <p class="lead mt-4">Supporting your parenthood journey with compassionate guidance, fertility evaluation and modern reproductive treatment options.</p>
+        </div>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            @foreach($fertilityCards as $i => $f)
+                <a href="{{ route('fertility.show', $f->slug) }}" class="card group relative flex flex-col overflow-hidden bg-gradient-to-br {{ $fTones[$i % 6] }} hover:-translate-y-1.5 hover:shadow-[0_22px_45px_-18px_rgba(107,47,176,0.45)]">
+                    <span class="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-white/15 transition duration-500 group-hover:scale-150"></span>
+                    <span class="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-white/90 text-brand-700 shadow-sm transition duration-300 group-hover:rotate-6 group-hover:scale-110"><x-icon :name="$f->icon ?: 'flask'" class="h-7 w-7" /></span>
+                    <h3 class="relative mt-5 text-2xl leading-snug">{{ $f->title }}</h3>
+                    <p class="relative mt-2 text-sm leading-relaxed text-mute">{{ $f->summary }}</p>
+                    <span class="relative mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-lilac">Learn more <x-icon name="arrow" class="h-4 w-4 transition group-hover:translate-x-1" /></span>
+                </a>
+            @endforeach
+        </div>
+        <div class="mt-10 text-center">
+            <a href="{{ route('fertility') }}" class="btn btn-primary">Explore All Fertility Treatments <x-icon name="arrow" class="h-4 w-4" /></a>
+            <p class="mx-auto mt-4 max-w-xl text-xs text-mute">Educational information only. Please contact the clinic to confirm which assessments and treatments are available.</p>
+        </div>
+    </div>
+</section>
+@endif
+
+{{-- EXPERTISE --}}<section class="section bg-ice-50">
     <div class="container-x">
         <div class="mx-auto max-w-2xl text-center">
             <span class="eyebrow">Expertise</span>

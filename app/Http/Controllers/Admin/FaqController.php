@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Faq;
+use App\Models\Service;
 
 class FaqController extends CrudController
 {
@@ -29,6 +30,7 @@ class FaqController extends CrudController
     {
         return [
             ['Question', fn ($f) => $f->question],
+            ['Treatment', fn ($f) => $f->service?->title ?? '—'],
             ['Group', fn ($f) => ucfirst($f->section)],
             ['Order', fn ($f) => $f->sort_order],
             ['Status', fn ($f) => $f->is_published ? 'published' : 'draft', 'badge'],
@@ -41,6 +43,7 @@ class FaqController extends CrudController
             ['name' => 'question', 'label' => 'Question', 'rules' => 'required|max:255'],
             ['name' => 'answer', 'label' => 'Answer', 'type' => 'textarea', 'rows' => 6, 'rules' => 'required|max:3000'],
             ['name' => 'section', 'label' => 'Group', 'type' => 'select', 'options' => ['general' => 'General', 'fertility' => 'Fertility', 'gynaecology' => 'Gynaecology', 'maternity' => 'Pregnancy'], 'rules' => 'required|in:general,fertility,gynaecology,maternity'],
+            ['name' => 'service_id', 'label' => 'Attach to a service (optional)', 'type' => 'select', 'options' => Service::orderBy('section')->orderBy('sort_order')->pluck('title', 'id')->all(), 'blank' => 'General FAQ (no service)', 'rules' => 'nullable|exists:services,id', 'help' => 'Shown on that service page and in the fertility explorer.'],
             ['name' => 'sort_order', 'label' => 'Sort order', 'type' => 'number', 'rules' => 'nullable|integer|min:0'],
             ['name' => 'is_published', 'label' => 'Published', 'type' => 'toggle'],
         ];

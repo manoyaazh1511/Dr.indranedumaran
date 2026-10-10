@@ -25,6 +25,7 @@ class HomeController extends Controller
             return [
                 'featured' => $featured,
                 'services' => Service::published()->get()->groupBy('section'),
+                'fertilityCards' => Service::published()->where('section', 'fertility')->where('is_featured', true)->limit(6)->get(),
                 'stages' => PregnancyStage::published()->get(),
                 'conferences' => Conference::published()->orderByDesc('start_date')->limit(3)->get(),
                 'gallery' => GalleryItem::published()->limit(8)->get(),
